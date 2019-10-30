@@ -13,7 +13,7 @@ public class BallCollisions : MonoBehaviour
     }
     void Update()
     {
-        if (Ball.transform.position.x >= (table.limitRight - Ball.transform.localScale.x / 1.2f) && ballMovement.force.x > 0) ballMovement.force.x *= -1;
-        if (Ball.transform.position.y >= table.limitLeft && ballMovement.force.y > 0) ballMovement.force.y *= -1;
+        //if (Ball.transform.position.x >= (table.limitRight - Ball.transform.localScale.x / 1.2f) && ballMovement.force.x > 0) ballMovement.force.x *= -1;
+        //if (Ball.transform.position.y >= table.limitLeft && ballMovement.force.y > 0) ballMovement.force.y *= -1;
     }
 }
