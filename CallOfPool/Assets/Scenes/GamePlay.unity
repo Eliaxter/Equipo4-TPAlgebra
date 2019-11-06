@@ -207,7 +207,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ball: {fileID: 614073516}
   force: {x: 0, y: 0}
-  forceAmount: 1.05
 --- !u!114 &614073520
 MonoBehaviour:
   m_ObjectHideFlags: 0
