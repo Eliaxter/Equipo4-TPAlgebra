@@ -12,10 +12,10 @@ public class Table : MonoBehaviour
     public float limitUp;
     void Start()
     {
-       // limitRight = walls[0].transform.position.x - walls[0].transform.localScale.x / 2;
-       // limitLeft = walls[1].transform.position.x + walls[1].transform.localScale.x / 2;
-       // limitUp = walls[2].transform.position.y - walls[2].transform.localScale.y / 2;
-       // limitDown = walls[3].transform.position.y + walls[3].transform.localScale.y / 2;
+        limitRight = walls[0].transform.position.x - walls[0].transform.lossyScale.x / 2;
+        limitLeft = walls[1].transform.position.x + walls[1].transform.lossyScale.x / 2;
+       limitUp = walls[2].transform.position.y - walls[2].transform.lossyScale.y / 2;
+       limitDown = walls[3].transform.position.y + walls[3].transform.lossyScale.y / 2;
     }
 
     void Update()
