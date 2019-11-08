@@ -4,31 +4,29 @@ using UnityEngine;
 
 public class BallCollisions : MonoBehaviour
 {
-    public GameObject Ball;
-    public GameObject BlackBall;
+    public GameObject ball;
+    public GameObject blackBall;
     public BallMovement ballMovement;
     public Table table;
-    private Vector2 relativeBallPos;
+    private float distBetweenBalls;
+
 
     void Start()
     {
-        BlackBall = GameObject.Find("Black-Ball");
+        blackBall = GameObject.Find("Black-Ball");
     }
     void Update()
     {
-        if (Ball.transform.position.x >= (table.limitRight - Ball.transform.lossyScale.x / 2) && ballMovement.force.x > 0) ballMovement.force.x *= -1;
-        if (Ball.transform.position.x <= table.limitLeft + Ball.transform.lossyScale.x / 2 && ballMovement.force.x < 0) ballMovement.force.x *= -1;
-        if (Ball.transform.position.y >= table.limitUp - Ball.transform.lossyScale.y / 2 && ballMovement.force.y > 0) ballMovement.force.y *= -1;
-        if (Ball.transform.position.y <= table.limitDown + Ball.transform.lossyScale.y / 2 && ballMovement.force.y < 0) ballMovement.force.y *= -1;
+        if (ball.transform.position.x >= (table.limitRight - ball.transform.lossyScale.x / 2) && ballMovement.force.x > 0) ballMovement.force.x *= -1;
+        if (ball.transform.position.x <= table.limitLeft + ball.transform.lossyScale.x / 2 && ballMovement.force.x < 0) ballMovement.force.x *= -1;
+        if (ball.transform.position.y >= table.limitUp - ball.transform.lossyScale.y / 2 && ballMovement.force.y > 0) ballMovement.force.y *= -1;
+        if (ball.transform.position.y <= table.limitDown + ball.transform.lossyScale.y / 2 && ballMovement.force.y < 0) ballMovement.force.y *= -1;
 
-        if (Mathf.Abs (BallPosVector(Ball) - BallPosVector(BlackBall)) < Ball.transform.lossyScale.x)
+        if (Vector3.Distance(ball.transform.position, blackBall.transform.position) <= ball.transform.lossyScale.x / 2.0f + blackBall.transform.lossyScale.x / 2.0f)
         {
-            ballMovement.force.x *= -1;
+            ballMovement.force *= -1.0f;
         }
-    }
-    float BallPosVector(GameObject ball)
-    {
-        relativeBallPos = Camera.main.WorldToScreenPoint(ball.transform.position);
-        return relativeBallPos.x + relativeBallPos.y;
+
+
     }
 }
