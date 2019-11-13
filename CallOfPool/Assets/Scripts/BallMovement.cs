@@ -38,8 +38,7 @@ public class BallMovement : MonoBehaviour
         {
             posicionMouse = Camera.main.WorldToScreenPoint(ball.transform.position) - Input.mousePosition;
 
-            force = posicionMouse - (Vector2)ball.transform.position;
-            Debug.Log(posicionMouse);
+            force = posicionMouse /*- (Vector2)ball.transform.position*/;
 
             force.x = Mathf.Abs(force.x);
             force.y = Mathf.Abs(force.y);
