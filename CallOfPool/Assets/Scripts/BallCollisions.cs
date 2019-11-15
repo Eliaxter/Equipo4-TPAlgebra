@@ -54,6 +54,8 @@ public class BallCollisions : MonoBehaviour
             {
                 newForce.y *= -1;
             }
+
+
             
             newForce *= oldSpeed/* * Time.deltaTime*/;
             Debug.Log("oldspeed"+newForce2);
