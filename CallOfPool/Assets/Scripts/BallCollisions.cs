@@ -11,7 +11,7 @@ public class BallCollisions : MonoBehaviour
     private float distBetweenBalls;
     private Vector2 blackBallToScreenPos;
 
-    private Vector2 newForce;
+    public Vector2 newForce;
     private Vector2 newForce2;
     private float oldSpeed;
     private float aux;
