@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BallCollisions : MonoBehaviour
 {
+    public BlackBallMovement blackBallMovement;
     public GameObject ball;
     public GameObject blackBall;
     public BallMovement ballMovement;
@@ -34,7 +35,7 @@ public class BallCollisions : MonoBehaviour
 
         if (Vector3.Distance(ball.transform.position, blackBall.transform.position) <= ball.transform.lossyScale.x / 2.0f + blackBall.transform.lossyScale.x / 2.0f /*&& collides ==true*/)
         {
-            oldSpeed = Mathf.Abs(ballMovement.force.x) + Mathf.Abs(ballMovement.force.y);
+            oldSpeed = Mathf.Abs(ballMovement.force.x) + Mathf.Abs(ballMovement.force.y) + blackBallMovement.blackBallForce.x + blackBallMovement.blackBallForce.y;
             newForce = blackBallToScreenPos - (Vector2)Camera.main.WorldToScreenPoint(ball.transform.position);
             newForce2 = newForce;
 

@@ -8,9 +8,9 @@ public class BallMovement : MonoBehaviour
     public Vector2 force;
     private Vector2 posicionMouse;
     private float forceAmount = 0;
-    private float minSpeed = 0.0005f;
+    public float minSpeed = 0.0005f;
     private float maxForce = 30.0f;
-    private float friction = 1.02f;
+    public float friction = 1.02f;
     private float aux = 0.0f;
     Vector2 aux2;
     Vector2 aux3;
@@ -71,7 +71,6 @@ public class BallMovement : MonoBehaviour
         if (Mathf.Abs(force.x) < minSpeed&& Mathf.Abs(force.x)!=0)
         {
             force.x = 0.0f;
-            Debug.Log((Vector2)ball.transform.position);
         }
         if (Mathf.Abs(force.y) < minSpeed&& Mathf.Abs(force.y)!=0)
         {

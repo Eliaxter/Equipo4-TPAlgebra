@@ -188,7 +188,7 @@ Transform:
   m_GameObject: {fileID: 614073516}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.97, y: 0.24, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -207,6 +207,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ball: {fileID: 614073516}
   force: {x: 0, y: 0}
+  minSpeed: 0.0005
+  friction: 1.02
 --- !u!114 &614073520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,8 +221,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59aaaaa97b0c0164e888d627540b9a2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blackBallMovement: {fileID: 1464646634}
   ball: {fileID: 614073516}
-  blackBall: {fileID: 0}
+  blackBall: {fileID: 1464646631}
   ballMovement: {fileID: 614073519}
   table: {fileID: 1554614421}
   newForce: {x: 0, y: 0}
@@ -618,7 +621,7 @@ Transform:
   m_GameObject: {fileID: 1464646631}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.19, y: 0.24, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -635,6 +638,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b1fd8d043499554a8118484acedd06a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  table: {fileID: 1554614421}
+  ballMovement: {fileID: 614073519}
+  blackBallForce: {x: 0, y: 0}
 --- !u!1 &1554614418
 GameObject:
   m_ObjectHideFlags: 0
