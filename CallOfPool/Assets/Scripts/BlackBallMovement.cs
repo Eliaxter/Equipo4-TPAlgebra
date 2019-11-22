@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class BlackBallMovement : MonoBehaviour
 {
-    GameObject blackBall;
-    GameObject ball;
-    BallCollisions force;
+    private GameObject blackBall;
+    private GameObject ball;
+    private BallCollisions force;
 
     void Start()
     {
@@ -16,9 +16,9 @@ public class BlackBallMovement : MonoBehaviour
 
     void Update()
     {
-        if (Vector3.Distance(ball.transform.position, blackBall.transform.position) <= ball.transform.lossyScale.x / 2.0f + blackBall.transform.lossyScale.x / 2.0f /*&& collides ==true*/)
-        {
-
-        }
+        //if (Vector3.Distance(ball.transform.position, blackBall.transform.position) <= ball.transform.lossyScale.x / 2.0f + blackBall.transform.lossyScale.x / 2.0f /*&& collides ==true*/)
+        //{
+            
+        //}
     }
 }
