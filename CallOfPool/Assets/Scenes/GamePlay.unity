@@ -207,6 +207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ball: {fileID: 614073516}
   force: {x: 0, y: 0}
+  lastFrameForce: {x: 0, y: 0}
   minSpeed: 0.0005
   friction: 1.02
 --- !u!114 &614073520

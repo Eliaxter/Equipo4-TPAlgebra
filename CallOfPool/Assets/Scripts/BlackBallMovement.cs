@@ -26,6 +26,7 @@ public class BlackBallMovement : MonoBehaviour
         if (Vector3.Distance(ball.transform.position, blackBall.transform.position) <= ball.transform.lossyScale.x / 2.0f + blackBall.transform.lossyScale.x / 2.0f)
         {
             blackBallForce = ballMovement.lastFrameForce - ballMovement.force;
+            if(ballMovement.lastFrameForce.x!=0|| ballMovement.lastFrameForce.x != 0) blackBallForce /= (blackBallForce / ballMovement.lastFrameForce);
         }
 
         if (blackBall.transform.position.x >= (table.limitRight - blackBall.transform.lossyScale.x / 2) && blackBallForce.x > 0) blackBallForce.x *= -1;
