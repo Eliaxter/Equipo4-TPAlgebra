@@ -23,9 +23,9 @@ public class BlackBallMovement : MonoBehaviour
     {
         this.transform.Translate(blackBallForce);
 
-        if (Vector3.Distance(ball.transform.position, blackBall.transform.position) <= ball.transform.lossyScale.x / 2.0f + blackBall.transform.lossyScale.x / 2.0f /*&& collides ==true*/)
+        if (Vector3.Distance(ball.transform.position, blackBall.transform.position) <= ball.transform.lossyScale.x / 2.0f + blackBall.transform.lossyScale.x / 2.0f)
         {
-            blackBallForce = -ballMovement.force;
+            blackBallForce = ballMovement.lastFrameForce - ballMovement.force;
         }
 
         if (blackBall.transform.position.x >= (table.limitRight - blackBall.transform.lossyScale.x / 2) && blackBallForce.x > 0) blackBallForce.x *= -1;
@@ -44,7 +44,6 @@ public class BlackBallMovement : MonoBehaviour
         if (Mathf.Abs(blackBallForce.x) < ballMovement.minSpeed && Mathf.Abs(blackBallForce.x) != 0)
         {
             blackBallForce.x = 0.0f;
-            Debug.Log((Vector2)ball.transform.position);
         }
         if (Mathf.Abs(blackBallForce.y) < ballMovement.minSpeed && Mathf.Abs(blackBallForce.y) != 0)
         {

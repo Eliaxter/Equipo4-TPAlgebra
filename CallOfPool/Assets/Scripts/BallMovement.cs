@@ -6,6 +6,7 @@ public class BallMovement : MonoBehaviour
 {
     public GameObject ball;
     public Vector2 force;
+    public Vector2 lastFrameForce;
     private Vector2 posicionMouse;
     private float forceAmount = 0;
     public float minSpeed = 0.0005f;
@@ -25,6 +26,7 @@ public class BallMovement : MonoBehaviour
 
     void Update()
     {
+        lastFrameForce = force;
         this.transform.Translate((Vector3)force);
         if (Input.GetMouseButton(0))
         {
@@ -38,7 +40,7 @@ public class BallMovement : MonoBehaviour
         {
             posicionMouse = Camera.main.WorldToScreenPoint(ball.transform.position) - Input.mousePosition;
 
-            force = posicionMouse /*- (Vector2)ball.transform.position*/;
+            force = posicionMouse;
 
             force.x = Mathf.Abs(force.x);
             force.y = Mathf.Abs(force.y);

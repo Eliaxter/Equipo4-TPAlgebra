@@ -30,10 +30,10 @@ public class BallCollisions : MonoBehaviour
         if (ball.transform.position.y >= table.limitUp - ball.transform.lossyScale.y / 2 && ballMovement.force.y > 0) ballMovement.force.y *= -1;
         if (ball.transform.position.y <= table.limitDown + ball.transform.lossyScale.y / 2 && ballMovement.force.y < 0) ballMovement.force.y *= -1;
 
-        //Debug.Log(Camera.main.WorldToScreenPoint(blackBall.transform.position));
+
         blackBallToScreenPos = Camera.main.WorldToScreenPoint(blackBall.transform.position);
 
-        if (Vector3.Distance(ball.transform.position, blackBall.transform.position) <= ball.transform.lossyScale.x / 2.0f + blackBall.transform.lossyScale.x / 2.0f /*&& collides ==true*/)
+        if (Vector3.Distance(ball.transform.position, blackBall.transform.position) <= ball.transform.lossyScale.x / 2.0f + blackBall.transform.lossyScale.x / 2.0f)
         {
             oldSpeed = Mathf.Abs(ballMovement.force.x) + Mathf.Abs(ballMovement.force.y) + blackBallMovement.blackBallForce.x + blackBallMovement.blackBallForce.y;
             newForce = blackBallToScreenPos - (Vector2)Camera.main.WorldToScreenPoint(ball.transform.position);
@@ -56,9 +56,8 @@ public class BallCollisions : MonoBehaviour
                 newForce.y *= -1;
             }
 
-
             
-            newForce *= oldSpeed/* * Time.deltaTime*/;
+            newForce *= oldSpeed;
             Debug.Log("oldspeed"+newForce2);
             ballMovement.force = newForce;
             collides = false;
