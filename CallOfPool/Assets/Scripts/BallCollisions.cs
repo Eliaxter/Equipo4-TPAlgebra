@@ -4,63 +4,73 @@ using UnityEngine;
 
 public class BallCollisions : MonoBehaviour
 {
+
+    public  GameObject[] ball;
+    public Vector2[] PosOnScreen;
+
     public BlackBallMovement blackBallMovement;
-    public GameObject ball;
-    public GameObject blackBall;
+    public GameObject whiteBall;
     public BallMovement ballMovement;
     public Table table;
     private float distBetweenBalls;
-    private Vector2 blackBallToScreenPos;
 
     public Vector2 newForce;
     private Vector2 newForce2;
     private float oldSpeed;
     private float aux;
-    private bool collides=true;
 
 
     void Start()
     {
-        blackBall = GameObject.Find("Black-Ball");
+        ball[0] = GameObject.Find("Black-Ball");
+        ball[1] = GameObject.Find("Blue-Ball");
+        ball[2] = GameObject.Find("Red-Ball");
+        ball[3] = GameObject.Find("Green-Ball");
+        ball[4] = GameObject.Find("Orange-Ball");
+        ball[5] = GameObject.Find("Yellow-Ball");
     }
     void Update()
     {
-        if (ball.transform.position.x >= (table.limitRight - ball.transform.lossyScale.x / 2) && ballMovement.force.x > 0) ballMovement.force.x *= -1;
-        if (ball.transform.position.x <= table.limitLeft + ball.transform.lossyScale.x / 2 && ballMovement.force.x < 0) ballMovement.force.x *= -1;
-        if (ball.transform.position.y >= table.limitUp - ball.transform.lossyScale.y / 2 && ballMovement.force.y > 0) ballMovement.force.y *= -1;
-        if (ball.transform.position.y <= table.limitDown + ball.transform.lossyScale.y / 2 && ballMovement.force.y < 0) ballMovement.force.y *= -1;
+        if (whiteBall.transform.position.x >= (table.limitRight - whiteBall.transform.lossyScale.x / 2) && ballMovement.force.x > 0) ballMovement.force.x *= -1;
+        if (whiteBall.transform.position.x <= table.limitLeft + whiteBall.transform.lossyScale.x / 2 && ballMovement.force.x < 0) ballMovement.force.x *= -1;
+        if (whiteBall.transform.position.y >= table.limitUp - whiteBall.transform.lossyScale.y / 2 && ballMovement.force.y > 0) ballMovement.force.y *= -1;
+        if (whiteBall.transform.position.y <= table.limitDown + whiteBall.transform.lossyScale.y / 2 && ballMovement.force.y < 0) ballMovement.force.y *= -1;
 
-
-        blackBallToScreenPos = Camera.main.WorldToScreenPoint(blackBall.transform.position);
-
-        if (Vector3.Distance(ball.transform.position, blackBall.transform.position) <= ball.transform.lossyScale.x / 2.0f + blackBall.transform.lossyScale.x / 2.0f)
+        for (int i = 0; i < 6; i++)
         {
-            oldSpeed = Mathf.Abs(ballMovement.force.x) + Mathf.Abs(ballMovement.force.y) + blackBallMovement.blackBallForce.x + blackBallMovement.blackBallForce.y;
-            newForce = blackBallToScreenPos - (Vector2)Camera.main.WorldToScreenPoint(ball.transform.position);
-            newForce2 = newForce;
+            PosOnScreen[i] = Camera.main.WorldToScreenPoint(ball[i].transform.position);
+        }
 
-            newForce.x = Mathf.Abs(newForce.x);
-            newForce.y = Mathf.Abs(newForce.y);
-
-            aux = newForce.x + newForce.y;
-
-            newForce.x = newForce.x / aux;
-            newForce.y = newForce.y / aux;
-
-            if (newForce2.x > 0)
+        for (int i = 0; i < 6; i++)
+        {
+            if (Vector3.Distance(whiteBall.transform.position, ball[i].transform.position) <= whiteBall.transform.lossyScale.x / 2.0f + ball[i].transform.lossyScale.x / 2.0f)
             {
-                newForce.x *= -1;
-            }
-            if (newForce2.y > 0)
-            {
-                newForce.y *= -1;
-            }
+                oldSpeed = Mathf.Abs(ballMovement.force.x) + Mathf.Abs(ballMovement.force.y) + blackBallMovement.blackBallForce.x + blackBallMovement.blackBallForce.y;
+                newForce = PosOnScreen[i] - (Vector2)Camera.main.WorldToScreenPoint(whiteBall.transform.position);
+                newForce2 = newForce;
 
-            
-            newForce *= oldSpeed;
-            Debug.Log("oldspeed"+newForce2);
-            ballMovement.force = newForce;
-            collides = false;
+                newForce.x = Mathf.Abs(newForce.x);
+                newForce.y = Mathf.Abs(newForce.y);
+
+                aux = newForce.x + newForce.y;
+
+                newForce.x = newForce.x / aux;
+                newForce.y = newForce.y / aux;
+
+                if (newForce2.x > 0)
+                {
+                    newForce.x *= -1;
+                }
+                if (newForce2.y > 0)
+                {
+                    newForce.y *= -1;
+                }
+
+
+                newForce *= oldSpeed;
+                Debug.Log("oldspeed" + newForce2);
+                ballMovement.force = newForce;
+            }
         }
 
     }
