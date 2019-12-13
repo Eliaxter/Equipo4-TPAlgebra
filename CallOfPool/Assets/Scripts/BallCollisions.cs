@@ -67,11 +67,10 @@ public class BallCollisions : MonoBehaviour
                 }
 
 
-                newForce *= oldSpeed;
-                Debug.Log("oldspeed" + newForce2);
+                newForce *= oldSpeed*0.8f;
                 ballMovement.force = newForce;
             }
         }
-
+        Debug.Log(Mathf.Abs(newForce.x) + Mathf.Abs(newForce.y));
     }
 }
