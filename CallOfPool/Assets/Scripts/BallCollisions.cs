@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//using UnityEngine.SceneManagement;
+
 
 public class BallCollisions : MonoBehaviour
 {
@@ -9,6 +11,8 @@ public class BallCollisions : MonoBehaviour
     public Vector2[] PosOnScreen;
     public GameObject[] hole;
     public Vector2[] PosOnScreenHole;
+
+    private MainMenu menus;
 
     public BlackBallMovement blackBallMovement;
     public GameObject whiteBall;
@@ -21,10 +25,11 @@ public class BallCollisions : MonoBehaviour
     private float oldSpeed;
     private float aux;
 
+    private float counter;
 
     void Start()
     {
-
+        menus = new MainMenu();
 
     }
     void Update()
@@ -80,6 +85,7 @@ public class BallCollisions : MonoBehaviour
                     if (Vector3.Distance(ball[i].transform.position, hole[j].transform.position) <= ball[i].transform.lossyScale.x / 2.0f + hole[j].transform.lossyScale.x / 2.0f)
                     {
                         Destroy(ball[i]);
+                        counter++;
                     }
                 }
             }
@@ -89,6 +95,12 @@ public class BallCollisions : MonoBehaviour
                 ballMovement.force.x = 0;
                 ballMovement.force.y = 0;
             }
+        }
+
+        if (counter == 6)
+        {
+            menus.WinnerScreen();
+            //SceneManager.LoadScene(3);
         }
     }
 }

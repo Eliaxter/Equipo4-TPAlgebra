@@ -8,13 +8,36 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(1);
+    }
+
+    public void GameCredits()
+    {
+        SceneManager.LoadScene(2);
+    }
+
+    public void BackButton()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void ExitToMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void PlayAgainButton()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void WinnerScreen()
+    {
+        SceneManager.LoadScene(3);
     }
 
     public void QuitGame()
-    {
-        Debug.Log("Hola Lean <3");
-        Debug.Log("Quit Game");
+    { 
         Application.Quit();
     }
 
