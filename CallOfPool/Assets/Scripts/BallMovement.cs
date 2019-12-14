@@ -7,6 +7,7 @@ public class BallMovement : MonoBehaviour
     public GameObject ball;
     public Vector2 force;
     public Vector2 lastFrameForce;
+    public Vector2 beforeLastFrame;
     private Vector2 posicionMouse;
     private float forceAmount = 0;
     public float minSpeed = 0.0005f;
@@ -26,6 +27,7 @@ public class BallMovement : MonoBehaviour
 
     void Update()
     {
+        beforeLastFrame = lastFrameForce;
         lastFrameForce = force;
         this.transform.Translate((Vector3)force);
         if (Input.GetMouseButton(0))
