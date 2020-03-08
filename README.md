@@ -1,7 +1,7 @@
 ﻿<h1>Pool</h1>
 
 <h2>Integrantes Equipo - 4</h2>
-<p>Brucart Elias - <a href="https://github.com/Eliaxter">Eliaxter</a> - <a href="mailto:eliasbrucart@hardgames.com.ar">eliasbrucart@hardgames.com.ar</a></p>
+<p>Brucart Elias - <a href="https://github.com/eliasbrucart">eliasbrucart</a> - <a href="mailto:eliasbrucart@hardgames.com.ar">eliasbrucart@hardgames.com.ar</a></p>
 <p>Noya Iker - <a href="https://github.com/IkerNoya">IkerNoya</a> - <a href="mailto:ikernoya4@gmail.com">ikernoya4@gmail.com</a></p>
 <p>Zabattaro Rodrigo - <a href="https://github.com/skylex157">skylex157</a> - <a href="mailto:rodrigo.zab@hotmail.com">rodrigo.zab@hotmail.com</a></p>
 <p>Szamrynskyj Matias - <a href="https://github.com/MatiReviews">MatiReviews</a> - <a href="mailto:matiastoo@hotmail.com">matiastoo@hotmail.com</a></p>
